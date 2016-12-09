@@ -7,9 +7,7 @@ var app = http.createServer((req, res) => {
     timer(5, res);
 });
 
-app.listen(9090);
 
-console.log('server on 9090');
 
 var isEnd = false;
 /** 生成倒计时渲染 */
@@ -37,3 +35,9 @@ function timer(num, res) {
 process.on('uncaughtException', function (err) {
     console.log(err);
 });
+
+module.exports = function () {
+    app.listen(9090);
+
+    console.log('server on 9090');
+};

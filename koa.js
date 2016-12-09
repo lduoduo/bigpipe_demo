@@ -21,13 +21,17 @@ app.use(function* () {
         view.push(`timer: 2000ms<br>`);
         yield sleep(5000);
         view.push(`timer: 5000ms<br>`);
-        
+
         /** 结束传送 */
         view.push(null);
     }).catch(e => { });
 
 });
 
-app.listen(9092);
 
-console.log('server on 9092');
+
+module.exports = function () {
+    app.listen(9092);
+
+    console.log('server on 9092');
+}
