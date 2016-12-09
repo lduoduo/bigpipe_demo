@@ -43,7 +43,7 @@ Nodejs自动开启 chunked encoding
 
 ### 怎么实现(这里只针对nodejs)
 #### 1. 不使用任何框架的实现方式
-    
+``` javascript
     var http = require('http');
     var app = http.createServer((req, res) => {
         res.writeHead(200, { 'Content-Type': 'text/html', 'charset': 'utf-8' });
@@ -83,7 +83,7 @@ Nodejs自动开启 chunked encoding
     process.on('uncaughtException', function (err) {
         console.log(err);
     });
-    
+```    
 [demo]
 
 ##### 关键字
@@ -92,6 +92,7 @@ Nodejs自动开启 chunked encoding
     res.write('xxxx');
     res.end('xxxx');
 #### 2. express写法
+``` javascript
     var express = require('express');
     var app = express();
 
@@ -106,7 +107,7 @@ Nodejs自动开启 chunked encoding
     app.listen(9091);
     
     console.log('server on 9091');
-    
+```
 [demo]
 ##### 关键字
 > 为什么不用res.send?
@@ -114,6 +115,7 @@ Nodejs自动开启 chunked encoding
 因为res.send包括了res.write()和res.end()
 
 #### 3. koa写法
+``` javascript
     var koa = require('koa');
     var app = koa();
     var co = require('co');
@@ -147,6 +149,7 @@ Nodejs自动开启 chunked encoding
     app.listen(9092);
     
     console.log('server on 9092');
+```
 [demo]
 
 ##### 问题
